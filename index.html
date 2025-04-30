@@ -149,6 +149,23 @@
           }
         }
       }
+
+      .iframe-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 75%; /* Maintains 4:3 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        }
+
+      .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
     </style>
   </head>
 
@@ -169,16 +186,28 @@
 
         <figure>
           <!-- <img src="world_sea_level.html" alt="" /> -->
-          <iframe src="images/world_sea_level.html" width="800" height="600" frameborder="0"></iframe>
+          <div class="iframe-container">
+            <iframe src="images/world_sea_level.html" frameborder="0"></iframe>
+          </div>
           <figcaption>This visualization depicts an increasing sea level over time.</figcaption>
         </figure>
 
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-          <li>RATIONALE_1</li>
-          <li>RATIONALE_2</li>
-          <li>RATIONALE_3</li>
+          <li>The dataset originally contained data for around 20 regions all over the world, in addition to data on the world as a whole.
+            I chose to show only the data for the world because the graph that represented all of the regions made the rate of increase seem 
+            far less significant - there were too many lines, so the slope seemed shallower. On a scale form deceptive to earnest (-2 to 2) This
+            choise was quite earnest (1) as it does help the viewer see the overall global trend in a clear way without too much ink on
+            graph, but it was originally made with the intent to highlight the positive slope. 
+          </li>
+          <li>Instead of making the title of this visualization something completely unbiased like "Change In Global Sea Level Over Time", I 
+            focused the title on the fact that sea levels are increasing. This makes it really stand out to the viewer that sea levels, are in fact, 
+            rising. This is neither deceptive or earnest (0), as it does highlight something with intention, but that fact is indeed the truth represented
+            in the visualization, and the general truth overall. 
+          </li>
+          <li>I created an annotation to make it even more clear to the viewer what the graph is showing. This choice is quite earnest (1) as it depicts the
+            exact trend in the graph, which does reflect the overall trend, but it was used with the intention of further emphasizing the increase in sea level. </li>
         </ul>
       </section>
 
@@ -186,23 +215,68 @@
         <h3>AGAINST the Proposition</h3>
 
         <figure>
-            <iframe src="images/world_sea_level_loss.html" width="800" height="600" frameborder="0"></iframe>
+          <div class="iframe-container">
+            <iframe src="images/declining_world_sea_level.html" frameborder="0"></iframe>
+          </div>
           <figcaption>Every year, some parts of the world see a decrease in sea level - this visualization highlights those changes.</figcaption>
         </figure>
 
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-          <li>RATIONALE_1</li>
-          <li>RATIONALE_2</li>
-          <li>RATIONALE_3</li>
+          <li>While the sea level generally rising, I noticed in the dataset that there existed instances of sea level rise. I filtered the dataset to include only those instances.
+            Focusing on these instances makes the viewer focus sea level recession, rather than on the overall trend of sea level rise. On a scale from deceptive to ernest (-2 to 2),
+            this decision was very deceptive (-2) as it is focusing on rare events that go against the general trend. It is also deceptive in a harmful way, as it 
+            hides the gravity of climate change, sea level rise, and the impacts of these changes.
+          </li>
+          <li>I made the title focusing on declining sea levels. This is very deceptive (-2) as it is generally false that sea level are declining. However, what I am stating is not false:
+            every single year there is a decline in sea level at some point in some regions. This choice would make an uninformed viewer think that sea levels are generally declining.
+          </li>
+          <li> In the dataset that included only instances of sea level decline, I grouped the data by year and found the number of unique regions in each respective year. Plotting
+            these findings, I discovered a negative trend (which makes sense... since sea levels are rising, less regions would see decrease) - but it does reveal that there are always 
+            regions with sea level decrease, highlighting only instances of decline. Additionally, the negative slope coupled with a title about "Declining Sea Levels" makes the viewer
+            think that the graph is showing a decline (in sea level). For these reasons, I would say this choice is very deceptive (-2).</li>
+            <li>I added an annotation that highlights the fact that the sea level recedes in many regions every year. This choice makes it very clear to the viewer that there is sea level decline.
+              This decision was pretty deceptive (-1) as it is misleading, but it also mainly just emphasizes the message conveyed by the visual elements of the graph.
+            </li>
         </ul>
       </section>
 
       <section>
         <h2>Final Reflection</h2>
 
-        <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+        <p>It was quite straightforward to determine what kind of plot to use in order to represent the increase in 
+          sea level over time - a line plot was the natural choice as it effectively visualizes the changes by
+          continuously representing the increase. I was initally surprised by how shallow the slope was when I 
+          plotted every single region of the world, but I realized that this shallow slope was due to the large 
+          volume of lines hiding the true patterns in the data. In order to overcome this, I initially tried selecting
+          certain regions of the world to see if they had a more aggressive slope, but I found difficulty in that selecting only a few regions
+          wasn't representative of the whole world. To resolve this, I filtered the dataset to include only the data for the entire world
+          instead of world and each region, and discovered that the world sea levels had a very distinct positive slope on 
+          its own. I found difficulty in figuring out how I should visualize the idea that sea levels are not declining - to me it is
+          so obvious that sea levels are rising. To get out of this frame of thinking, I decided to ignore the fact that sea levels are rising: I
+          filtered the dataset to include only instances of decline. It truly did surprise me how much decline there is, but
+          this makes sense as every year during the winter more water is stored on land as ice and snow and the colder temperatures cause 
+          the ocean to cool and contract, causing sea levels to drop.
+        </p>
+
+        <p>One could argue that "ethical analysis and visualization" refers to "unbiased analysis and visualization", but 
+          no one can truly be unbiased, and we all carry some sort of bias with us as we create visualizations (even when they
+          seem to be the objective truth). It becomes difficult to define what the absolute truth is, and what one may see as the truth,
+          another may regard as completely false. Instead of suggesting that one must be portraying the unbiased truth in order to be 
+          ethical, "ethical analysis and visualization" is analysis and visualization that does not intentionally cause either direct 
+          or indirect harm to people, animals, or the environment and attempts to convey what the creator views as the truth. Because the definition of ethical visualization is, by nature, vague, 
+          it is difficult to draw bounds that distinguish "acceptable" persuasive choices vs. "misleading" ones.
+          The difference between acceptable persuasive choices and misleading ones depends on the context. If one were to ethically create
+          a visualization, an acceptable persuasive choice would be any choice that helps convey the message of the visualization without stating something
+          false, while a misleading one would be using dishonesty to convey the message. If one were to unethically create a visualization, there is no such thing
+          as an acceptable persuasive choice.
+        </p>
+
+        <p> It is important to note that there are nuances to ethics: a visualization could help one group of people by highlighting the wrongdoings of 
+          another group - while it harms the other group by bringing them shame, it ultimately helps both groups by bringing awareness to the struggles of
+          one group while giving the other group a chance to reflect.
+        </p>
       </section>
     </main>
   </body>
